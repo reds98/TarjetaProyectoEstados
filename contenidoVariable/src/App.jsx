@@ -4,16 +4,15 @@ import './App.css'
 import Formulario from './Formulario'
 import Tarjeta from './Tarjeta'
 function App() {
-  const [nombre,setNombre]=useState("")
-  const [edad,setEdad]=useState(0)
 
-  return(
+  const [invitaciones, setInvitaciones] = useState([])
+  return (
     <div className="App">
-      <Formulario nombre={nombre} edad={edad} setNombre={setNombre} setEdad={setEdad}/>
-      <Tarjeta/>
-      </div>
+      <Formulario invitaciones={invitaciones} setInvitaciones={setInvitaciones} />
+      {invitaciones.map((invitacion) => (<Tarjeta invitacion={invitacion} />))}
+    </div>
   )
-  
+
 }
 
 export default App
